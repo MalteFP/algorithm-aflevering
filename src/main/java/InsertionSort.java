@@ -5,7 +5,7 @@ public class InsertionSort<T extends Comparable<T>> extends Sorter<T> {
 
             T key = data[i];
             int j = i - 1;
-            while(j >= 0 && data[j].compareTo(key) > 0){
+            while(j >= 0 && data[j].compareTo(key) < 0){
                 data[j+1] = data[j];
                 j--;
             }
