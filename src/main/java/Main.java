@@ -4,13 +4,16 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        QuickSort quickSort = new QuickSort();
-        InsertionSort insertionSort = new InsertionSort();
+        QuickSort<String> quickSort = new QuickSort<>();
+        InsertionSort<Integer> insertionSort = new InsertionSort<>();
+        BinarySearch<String> binarySearch = new BinarySearch<>();
 
-        String[] arter = txtToArray("src/main/resources/arter.txt");
-        Integer[] arr2 = {13,32,23,4,55,65,7,48,19,130};
-        quickSort.run(arter);
-        insertionSort.run(arter);
+
+        String[] animalArr = txtToArray("src/main/resources/arter.txt");
+        Integer[] numArr = {13,32,23,4,55,65,7,48,19,130};
+        insertionSort.run(numArr);
+        String[] sortedAnimals = quickSort.run(animalArr);
+        binarySearch.run(sortedAnimals, "Piratfisk");
 
 
     }

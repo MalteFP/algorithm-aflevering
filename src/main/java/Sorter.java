@@ -2,10 +2,11 @@ import java.util.Arrays;
 
 public abstract class Sorter<T extends Comparable<T>>{
     protected T[] data;
-    void run(T[] arr) {
+    T[] run(T[] arr) {
         data = arr;
         start();
-        System.out.println(Arrays.toString(data));
+        System.out.println(getClass().getSimpleName() + ": " + Arrays.toString(data));
+        return data;
     }
 
 
