@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public abstract class Searcher <T extends Comparable<T>>{
     protected T[] data;
     protected T goal;
