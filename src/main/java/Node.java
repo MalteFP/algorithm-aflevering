@@ -44,5 +44,19 @@ public class Node <T extends Comparable<T>> {
         }
 
     }
+
+    public Node<T> getNodeFromValuePO(T value) {
+        Node<T> node = null;
+        if(left != null) {
+            node = left.getNodeFromValuePO(value);
+        }
+        if(right != null) {
+            node = right.getNodeFromValuePO(value);
+        }
+        if(value == this.value) {
+            node = this;
+        }
+        return node;
+    }
 }
 

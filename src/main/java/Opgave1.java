@@ -20,8 +20,9 @@ public class Opgave1 {
     public static void getNewAction() {
             System.out.println("What do you want to do?");
             System.out.println("1 : Add new node");
-            System.out.println("2 : Search for highest value");
-            System.out.println("3 : Quit");
+            System.out.println("2 : Search for highest value with Post-Order");
+            System.out.println("3 : Search for highest value with Reverse In-Order");
+            System.out.println("4 : Quit");
             int action = Utils.reader(1, 3);
 
             switch (action) {
@@ -31,10 +32,14 @@ public class Opgave1 {
                     getNewAction();
                     break;
                 case 2:
-                    getBestNode();
+                    getNodePO(getBestNodeRIO(false).value);
                     getNewAction();
                     break;
                 case 3:
+                    getBestNodeRIO(true);
+                    getNewAction();
+                    break;
+                case 4:
             }
     }
     public static void addNewNode() {
@@ -50,12 +55,19 @@ public class Opgave1 {
         root.printTree();
     }
 
-    public static void getBestNode() {
+    public static Node<Integer> getBestNodeRIO(boolean print) {
         Node<Integer> currentNode = root;
         while (currentNode.right != null) {
             currentNode = currentNode.right;
         }
+        if(print){
         System.out.println(currentNode.value + ": " + currentNode.name);
+        }
+        return currentNode;
     }
 
+    public static void getNodePO(Integer value) {
+        Node<Integer> bestNode = root.getNodeFromValuePO(value);
+        System.out.println(bestNode.value + ": " + bestNode.name);
+    }
 }
